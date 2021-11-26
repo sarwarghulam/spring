@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Corona Virus Tracker</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+
+<body>
+
+	<div class="container">
+		<h1>Corona Virus Tracker Application!</h1>
+		<p>This application is design to inform people about the latest figure of the corona virus </p>
+		<hr>
+		</hr>
+		<div class="container-fluid">
+		<h2 th:text=" ${totalCases}">0</h2>
+			<p>Total Cases Registered </p>
+			<p>Total new cases: <span th:text="${newCases}">0</span></p>
+		</div>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Country</th>
+					<th>State</th>
+					<th>Total Cases Registered</th>
+					<th>New Case Registered</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="record: ${allRecord}">
+					<td th:text="${record.country}"></td>
+					<td th:text="${record.state}"></td>
+					<td th:text="${record.totalCase}">0</td>
+					<td th:text="${record.newCase}">0</td>
+				</tr>
+			</tbody>
+		</table>
+		</ddiv>
+
+</body>
+
+</html>
